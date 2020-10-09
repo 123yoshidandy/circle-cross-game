@@ -1,1 +1,1 @@
-# gomoku
+# Circle-Cross Game
