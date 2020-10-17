@@ -23,7 +23,7 @@ def count_mark(field, mark):
     return count
 
 
-def count_stone_inner(field, x, y, weight_x, weight_y, mark):
+def count_stone(field, x, y, weight_x, weight_y, mark):
     count = 0
     i = x + weight_x
     j = y + weight_y
@@ -31,13 +31,6 @@ def count_stone_inner(field, x, y, weight_x, weight_y, mark):
         count += 1
         i += 1 * weight_x
         j += 1 * weight_y
-    return count
-
-
-def count_stone(field, x, y, weight_x, weight_y, mark):
-    count = 1  # 座標自身
-    count += count_stone_inner(field, x, y,      weight_x,      weight_y, mark)  # プラス方向
-    count += count_stone_inner(field, x, y, -1 * weight_x, -1 * weight_y, mark)  # マイナス方向
     return count
 
 
@@ -60,10 +53,10 @@ def main():
             field[y][x] = mark
 
             count = max(
-                count_stone(field, x, y, 1,  0, mark),  # row
-                count_stone(field, x, y, 0,  1, mark),  # column
-                count_stone(field, x, y, 1,  1, mark),  # down to the right
-                count_stone(field, x, y, 1, -1, mark),  # up to the right
+                1 + count_stone(field, x, y, 1,  0, mark) + count_stone(field, x, y, -1,  0, mark),  # row
+                1 + count_stone(field, x, y, 0,  1, mark) + count_stone(field, x, y,  0, -1, mark),  # column
+                1 + count_stone(field, x, y, 1,  1, mark) + count_stone(field, x, y, -1, -1, mark),  # down to the right
+                1 + count_stone(field, x, y, 1, -1, mark) + count_stone(field, x, y, -1,  1, mark),  # up to the right
             )
             if count >= COUNT_MAX:
                 winner = mark
