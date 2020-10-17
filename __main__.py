@@ -3,6 +3,9 @@
 
 FIELD_SIZE = 8
 COUNT_MAX = 5
+CIRCLE = "o"
+CROSS = "x"
+EMPTY = "."
 
 
 def print_field(field):
@@ -14,13 +17,11 @@ def print_field(field):
         print(str(i + 1) + " " + str(row).replace("[", "").replace("]", "").replace("'", "").replace(",", ""))
 
 
-def count_mark(field, mark):
-    count = 0
+def exist_empty(field):
     for row in field:
-        for cell in row:
-            if cell == mark:
-                count += 1
-    return count
+        if EMPTY in row:
+            return True
+    return False
 
 
 def count_stone(field, x, y, dx, dy, mark):
@@ -35,12 +36,12 @@ def count_stone(field, x, y, dx, dy, mark):
 
 
 def main():
-    field = [["." for _ in range(FIELD_SIZE)] for __ in range(FIELD_SIZE)]
+    field = [[EMPTY for _ in range(FIELD_SIZE)] for __ in range(FIELD_SIZE)]
 
     winner = None
     is_circle = True
-    while winner is None and count_mark(field, ".") > 0:
-        mark = "o" if is_circle else "x"
+    while winner is None and exist_empty(field):
+        mark = CIRCLE if is_circle else CROSS
         print_field(field)
         print("Turn of '" + mark + "' !")
         try:
