@@ -48,7 +48,7 @@ def main():
             point = input("Please input point (x, y): ")
             x, y = point.split(",")
             x, y = int(x) - 1, int(y) - 1
-            if field[y][x] != '.':
+            if field[y][x] != EMPTY:
                 raise Exception("This point is already putted !")
 
             field[y][x] = mark
@@ -62,7 +62,7 @@ def main():
             if count >= COUNT_MAX:
                 winner = mark
 
-            is_circle = not is_circle  # change turn "o" <--> "x"
+            is_circle = not is_circle  # change turn CIRCLE <--> CROSS
 
         except Exception as error:
             print("ERROR: " + str(error))
