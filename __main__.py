@@ -23,14 +23,14 @@ def count_mark(field, mark):
     return count
 
 
-def count_stone(field, x, y, weight_x, weight_y, mark):
+def count_stone(field, x, y, dx, dy, mark):
     count = 0
-    i = x + weight_x
-    j = y + weight_y
+    i = x + dx
+    j = y + dy
     while 0 <= i < len(field[0]) and 0 <= j < len(field) and field[j][i] == mark:
         count += 1
-        i += 1 * weight_x
-        j += 1 * weight_y
+        i += dx
+        j += dy
     return count
 
 
