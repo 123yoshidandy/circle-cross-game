@@ -26,8 +26,7 @@ def exist_empty(field):
 
 
 def count_stone(field, x, y, dx, dy, mark):
-    x += dx
-    y += dy
+    x, y = x + dx, y + dy
     if 0 <= x < len(field[0]) and 0 <= y < len(field) and field[y][x] == mark:
         return 1 + count_stone(field, x, y, dx, dy, mark)
     else:
@@ -38,9 +37,8 @@ def main():
     field = [[EMPTY for _ in range(FIELD_SIZE)] for __ in range(FIELD_SIZE)]
 
     winner = None
-    is_circle = True
+    mark = CIRCLE  # first move
     while winner is None and exist_empty(field):
-        mark = CIRCLE if is_circle else CROSS
         print_field(field)
         print("Turn of '" + mark + "' !")
         try:
@@ -67,7 +65,7 @@ def main():
             print("ERROR: " + str(error))
 
         else:
-            is_circle = not is_circle  # change turn CIRCLE <--> CROSS
+            mark = CROSS if mark == CIRCLE else CIRCLE  # change turn CIRCLE <--> CROSS
 
     print_field(field)
     if winner:
