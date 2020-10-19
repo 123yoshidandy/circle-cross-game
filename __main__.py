@@ -41,6 +41,7 @@ def main():
     while winner is None and exist_empty(field):
         print_field(field)
         print("Turn of '" + mark + "' !")
+
         try:
             point = input("Please input point (x, y): ")
             x, y = point.split(",")
@@ -52,6 +53,10 @@ def main():
 
             field[y][x] = mark
 
+        except Exception as error:
+            print("ERROR: " + str(error))  # Don't change turn
+
+        else:
             count = max(
                 1 + count_stone(field, x, y, 1,  0, mark) + count_stone(field, x, y, -1,  0, mark),  # row
                 1 + count_stone(field, x, y, 0,  1, mark) + count_stone(field, x, y,  0, -1, mark),  # column
@@ -61,10 +66,6 @@ def main():
             if count >= COUNT_MAX:
                 winner = mark
 
-        except Exception as error:
-            print("ERROR: " + str(error))
-
-        else:
             mark = CROSS if mark == CIRCLE else CIRCLE  # change turn CIRCLE <--> CROSS
 
     print_field(field)
