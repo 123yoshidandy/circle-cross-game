@@ -9,8 +9,7 @@ EMPTY = "."
 
 
 def print_field(field):
-    print("-----------------")
-    line = " "
+    line = "\n "
     for i in range(len(field[0])):
         line += " " + str(i + 1)
     print(line)
