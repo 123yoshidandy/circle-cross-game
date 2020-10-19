@@ -25,14 +25,12 @@ def exist_empty(field):
 
 
 def count_stone(field, x, y, dx, dy, mark):
-    count = 0
-    i = x + dx
-    j = y + dy
-    while 0 <= i < len(field[0]) and 0 <= j < len(field) and field[j][i] == mark:
-        count += 1
-        i += dx
-        j += dy
-    return count
+    x += dx
+    y += dy
+    if 0 <= x < len(field[0]) and 0 <= y < len(field) and field[y][x] == mark:
+        return 1 + count_stone(field, x, y, dx, dy, mark)
+    else:
+        return 0
 
 
 def main():
