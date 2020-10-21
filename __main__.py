@@ -13,6 +13,7 @@ def print_field(field):
     for i in range(len(field[0])):
         line += " " + str(i + 1)
     print(line)
+    # print("\n  " + str(list(range(1, len(field[0]) + 1))).replace("[", "").replace("]", "").replace(",", ""))
     for i, row in enumerate(field):
         print(str(i + 1) + " " + str(row).replace("[", "").replace("]", "").replace("'", "").replace(",", ""))
     print("-----------------")
@@ -57,6 +58,8 @@ def main():
             print("ERROR: " + str(error))  # Don't change turn
 
         else:
+            # field[y][x] = mark
+
             count = max(
                 1 + count_stone(field, x, y, 1,  0, mark) + count_stone(field, x, y, -1,  0, mark),  # row
                 1 + count_stone(field, x, y, 0,  1, mark) + count_stone(field, x, y,  0, -1, mark),  # column
