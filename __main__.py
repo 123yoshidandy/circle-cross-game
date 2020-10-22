@@ -1,22 +1,15 @@
 # coding: utf-8
 
-
-FIELD_SIZE = 8
+FIELD_WIDTH, FIELD_HEIGHT = 10, 8
 COUNT_MAX = 5
-CIRCLE = "o"
-CROSS = "x"
-EMPTY = "."
+CIRCLE, CROSS, EMPTY = "o", "x", "."
 
 
 def print_field(field):
-    line = "\n "
-    for i in range(len(field[0])):
-        line += " " + str(i + 1)
-    print(line)
-    # print("\n  " + str(list(range(1, len(field[0]) + 1))).replace("[", "").replace("]", "").replace(",", ""))
+    print("\n  " + str(list(range(1, len(field[0]) + 1))).replace("[", "").replace("]", "").replace(",", ""))
     for i, row in enumerate(field):
-        print(str(i + 1) + " " + str(row).replace("[", "").replace("]", "").replace("'", "").replace(",", ""))
-    print("-----------------")
+        print(str(i + 1) + " " + str(row).replace("'", "").replace("[", "").replace("]", "").replace(",", ""))
+    print("-" * (2 * len(field[0]) + 1))
 
 
 def exist_empty(field):
@@ -35,7 +28,7 @@ def count_stone(field, x, y, dx, dy, mark):
 
 
 def main():
-    field = [[EMPTY for _ in range(FIELD_SIZE)] for __ in range(FIELD_SIZE)]
+    field = [[EMPTY for _ in range(FIELD_WIDTH)] for __ in range(FIELD_HEIGHT)]
 
     winner = None
     mark = CIRCLE  # first move
@@ -52,13 +45,11 @@ def main():
             if field[y][x] != EMPTY:
                 raise Exception("This point is already putted !")
 
-            field[y][x] = mark
-
         except Exception as error:
             print("ERROR: " + str(error))  # Don't change turn
 
         else:
-            # field[y][x] = mark
+            field[y][x] = mark
 
             count = max(
                 1 + count_stone(field, x, y, 1,  0, mark) + count_stone(field, x, y, -1,  0, mark),  # row
