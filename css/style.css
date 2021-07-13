@@ -1,4 +1,8 @@
 body {
+    width: 80vmin;
+    height: 100vmin;
+    margin-left: auto;
+    margin-right: auto;
     background-color: #263238;
 }
 
@@ -6,27 +10,19 @@ h1 {
     color: #FFFFFF;
 }
 
-.board {
-    width: 500px; /* 表の幅 */
-    height: 500px; /* 表の高さ */
-    /* 中央揃えにする */
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-}
-
 .field_table {
-    width: 500px; /* 表の幅 */
-    height: 500px; /* 表の高さ */
-    /* 中央揃えにする */
+    width: 80vmin;
+    height: 80vmin;
     margin-left: auto;
     margin-right: auto;
 }
 
 td {
-    width: 10%; /* セルの幅 */
-    height: 10%; /* セルの高さ */
-    background-color: #455A64; /* 背景色 */
+    width: 10%;
+    height: 10%;
+    background-color: #455A64;
+    font-size: 4vmin;
+    text-align: center;
 }
 
 .matu {
