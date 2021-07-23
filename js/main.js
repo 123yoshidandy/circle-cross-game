@@ -70,7 +70,7 @@ function onClick(event) {
 function countStone(x, y, dx, dy) {
     x += dx;
     y += dy;
-    if (0 <= x < WIDTH && 0 < y <= HEIGHT && cells[y][x].textContent == mark) {
+    if (0 <= x && x < WIDTH && 0 <= y && y < HEIGHT && cells[y][x].textContent == mark) {
         return 1 + countStone(x, y, dx, dy);
     } else {
         return 0;
