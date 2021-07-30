@@ -1,3 +1,3 @@
 # Circle-Cross Game
 
-https://yoshidafamily.github.io/circle-cross-game/
+https://yoshida-kazuki.github.io/circle-cross-game/
