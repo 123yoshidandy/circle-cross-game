@@ -57,8 +57,13 @@ function onClick(event) {
         return;
     }
 
+    if (history.length > 0) {
+        cells[history[history.length - 1][1]][history[history.length - 1][0]].style.backgroundColor = "red";cells[history[history.length - 1][1]][history[history.length - 1][0]].style.backgroundColor = "darkgreen";
+    }
+    
     cells[y][x].textContent = mark;
     history.push([x, y]);
+    cells[y][x].style.backgroundColor = "gold";
 
     let count = Math.max(
         1 + countStone(x, y, 1,  0) + countStone(x, y, -1,  0),  // 横
@@ -91,6 +96,7 @@ function undo() {
 
     let [x, y] = history.pop();
     cells[y][x].textContent = "";
+    cells[y][x].style.backgroundColor = "darkgreen";
 
     mark = mark == "○" ? "●" : "○";
 
