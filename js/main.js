@@ -55,7 +55,7 @@ function onClick(event) {
     let x = event.target.cellIndex;
     let y = event.target.parentElement.rowIndex;
 
-    if (isEnd || cells[y][x].textContent != "") {
+    if (isEnd || history.some(([hx, hy]) => hx === x && hy === y)) {
         return;
     }
 
