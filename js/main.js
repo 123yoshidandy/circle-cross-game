@@ -39,7 +39,7 @@ function reset() {
     let td_array = document.getElementsByTagName("td");
     let index = 0;
     for (let row = 0; row < HEIGHT; row++) {
-        cells.push([]); // 配列のそれぞれの要素を配列にする（2次元配列にする）
+        cells.push([]); // 配列のそれぞれの要素を2次元配列にする
         for (let col = 0; col < WIDTH; col++) {
             cells[row].push(td_array[index]);
             index++;
@@ -58,10 +58,10 @@ function onClick(event) {
     cells[y][x].textContent = mark;
 
     let count = Math.max(
-        1 + countStone(x, y, 1,  0) + countStone(x, y, -1,  0),
-        1 + countStone(x, y, 0,  1) + countStone(x, y,  0, -1),
-        1 + countStone(x, y, 1,  1) + countStone(x, y, -1, -1),
-        1 + countStone(x, y, 1, -1) + countStone(x, y, -1,  1)
+        1 + countStone(x, y, 1,  0) + countStone(x, y, -1,  0),  // 横
+        1 + countStone(x, y, 0,  1) + countStone(x, y,  0, -1),  // 縦
+        1 + countStone(x, y, 1,  1) + countStone(x, y, -1, -1),  // 右上がり
+        1 + countStone(x, y, 1, -1) + countStone(x, y, -1,  1)  // 右下がり
     );
     if (count >= COUNT_MAX) {
         isEnd = true;
