@@ -1,3 +1,3 @@
-# Circle-Cross Game on JavaScript
+# Circle-Cross Game
 
-https://123yoshidandy.github.io/circle-cross-on-javascript/
+https://123yoshidandy.github.io/circle-cross-game/
