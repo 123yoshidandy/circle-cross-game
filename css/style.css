@@ -3,11 +3,11 @@ body {
     height: 100vmin;
     margin-left: auto;
     margin-right: auto;
-    background-color: #3c8a6b;
+    background-color: yellowgreen;
 }
 
 h1 {
-    color: #03190a;
+    color: black;
 }
 
 .table_field {
@@ -20,15 +20,7 @@ h1 {
 td {
     width: 10%;
     height: 10%;
-    background-color: #136b3e;
+    background-color: darkgreen;
     font-size: 4vmin;
     text-align: center;
-}
-
-.matu {
-    background-color: #F44336;
-}
-  
-.batsu {
-    background-color: #00BCD4;
 }
