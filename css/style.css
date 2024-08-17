@@ -13,19 +13,19 @@ body {
 }
 
 span {
-    font-size: 200%;
+    font-size:300%;
 }
 
 input {
-    transform: scale(2.0);
+    transform: scale(3.0);
 }
 
 label {
-    font-size: 150%;
+    font-size: 200%;
 }
 
 button {
-    font-size: 150%;
+    font-size: 200%;
 }
 
 .table_field {
