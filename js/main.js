@@ -12,7 +12,7 @@ let is_blind = null;
 reset();
 
 function reset() {
-    document.getElementById("h1_title").textContent = "五目並べ";
+    document.getElementById("span_title").textContent = "五目並べ";
     field = document.getElementById("table_field");
     cells = [];
     history = [];
@@ -79,7 +79,7 @@ function onClick(event) {
     );
     if (count >= COUNT_MAX) {
         isEnd = true;
-        document.getElementById("h1_title").textContent = document.getElementById("h1_title").textContent + "：" + mark + "の勝ち";
+        document.getElementById("span_title").textContent = document.getElementById("span_title").textContent + "：" + mark + "の勝ち";
     }
 
     if (is_blind) {
@@ -136,5 +136,5 @@ function undo() {
     mark = mark == "○" ? "●" : "○";
 
     isEnd = false;
-    document.getElementById("h1_title").textContent = "五目並べ";
+    document.getElementById("span_title").textContent = "五目並べ";
 }

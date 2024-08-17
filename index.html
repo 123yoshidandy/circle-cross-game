@@ -6,12 +6,14 @@
         <link rel="stylesheet" href="./css/style.css">
     </head>
     <body>
-        <h1 id="h1_title"></h1>
-        <div id="buttons">
-            <button id="button_undo" onclick="undo()">戻す</button>
-            <button id="button_reset" onclick="reset()">リセット</button>
-            <label for="label_mode">目隠しモード:</label>
-            <input type="checkbox" id="checkbox_mode" onchange="toggleMode()">
+        <div class="flex-container">
+            <span id="span_title"></span>
+            <div>
+                <input type="checkbox" id="checkbox_mode" onchange="toggleMode()">
+                <label for="label_mode">目隠し</label>
+                <button id="button_undo" onclick="undo()">待った</button>
+                <button id="button_reset" onclick="reset()">リセット</button>
+            </div>
         </div>
         <table id="table_field" class="table_field"></table>
         <script src="./js/main.js"></script>

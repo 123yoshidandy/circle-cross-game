@@ -1,18 +1,36 @@
 body {
-    width: 80vmin;
+    width: 90vmin;
     height: 100vmin;
     margin-left: auto;
     margin-right: auto;
     background-color: yellowgreen;
 }
 
-h1 {
-    color: black;
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+span {
+    font-size: 200%;
+}
+
+input {
+    transform: scale(2.0);
+}
+
+label {
+    font-size: 150%;
+}
+
+button {
+    font-size: 150%;
 }
 
 .table_field {
-    width: 80vmin;
-    height: 80vmin;
+    width: 90vmin;
+    height: 90vmin;
     margin-left: auto;
     margin-right: auto;
 }
@@ -21,7 +39,7 @@ td {
     width: 10%;
     height: 10%;
     background-color: forestgreen;
-    font-size: 4vmin;
+    font-size: 5vmin;
     text-align: center;
 }
 
