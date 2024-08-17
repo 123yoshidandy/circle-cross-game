@@ -7,6 +7,7 @@ let cells = null;
 let history = null;
 let mark = null;
 let isEnd = null;
+let is_blind = null;
 
 reset();
 
@@ -17,6 +18,7 @@ function reset() {
     history = [];
     mark = "○";
     isEnd = false;
+    is_blind = document.getElementById('checkbox_mode').checked;
 
     for (let i = field.rows.length - 1; i >= 0; i--) {
         field.deleteRow(i);
@@ -61,8 +63,12 @@ function onClick(event) {
         cells[history[history.length - 1][1]][history[history.length - 1][0]].style.backgroundColor = "red";cells[history[history.length - 1][1]][history[history.length - 1][0]].style.backgroundColor = "darkgreen";
     }
     
-    cells[y][x].textContent = mark;
     history.push([x, y]);
+    if (is_blind) {
+        recover();
+    } else {
+        cells[y][x].textContent = mark;
+    }
     cells[y][x].style.backgroundColor = "gold";
 
     let count = Math.max(
@@ -76,6 +82,10 @@ function onClick(event) {
         document.getElementById("h1_title").textContent = document.getElementById("h1_title").textContent + "：" + mark + "の勝ち";
     }
 
+    if (is_blind) {
+        blind();
+    }
+
     mark = mark == "○" ? "●" : "○";
 }
 
@@ -87,6 +97,31 @@ function countStone(x, y, dx, dy) {
     } else {
         return 0;
     }
+}
+
+function toggleMode() {
+    is_blind = document.getElementById('checkbox_mode').checked;
+    if (is_blind) {
+        blind();
+    } else {
+        recover();
+    }
+}
+
+function blind() {
+    cells.forEach(row => {
+        row.forEach(cell => {
+            cell.textContent = "";
+        });
+    });
+}
+
+function recover() {
+    let tmp = "○";
+    history.forEach(([x, y]) => {
+        cells[y][x].textContent = tmp;
+        tmp = tmp == "○" ? "●" : "○";
+    });
 }
 
 function undo() {
