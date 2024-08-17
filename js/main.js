@@ -1,16 +1,25 @@
-let field = document.getElementById("field_table");
-let cells = [];
-
 const HEIGHT = 10;
 const WIDTH = 10;
 const COUNT_MAX = 5;
 
-let mark = "○";
-let isEnd = false;
+let field = null;
+let cells = null;
+let mark = null;
+let isEnd = null;
 
-init();
+reset();
 
-function init() {
+function reset() {
+    document.getElementById("title_text").textContent = "五目並べ";
+    field = document.getElementById("field_table");
+    cells = [];
+    mark = "○";
+    isEnd = false;
+
+    for (let i = field.rows.length - 1; i >= 0; i--) {
+        field.deleteRow(i);
+    }
+
     for (let row = 0; row < HEIGHT; row++) {
         let tr = document.createElement("tr");
         for (let col = 0; col < WIDTH; col++) {
