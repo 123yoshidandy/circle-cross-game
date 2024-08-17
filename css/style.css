@@ -18,6 +18,7 @@ span {
 
 input {
     transform: scale(3.0);
+    margin: 2vmin;
 }
 
 label {
@@ -26,6 +27,7 @@ label {
 
 button {
     font-size: 200%;
+    margin: 1vmin;
 }
 
 .table_field {
