@@ -10,8 +10,8 @@ let isEnd = null;
 reset();
 
 function reset() {
-    document.getElementById("title_text").textContent = "五目並べ";
-    field = document.getElementById("field_table");
+    document.getElementById("h1_title").textContent = "五目並べ";
+    field = document.getElementById("table_field");
     cells = [];
     mark = "○";
     isEnd = false;
@@ -65,7 +65,7 @@ function onClick(event) {
     );
     if (count >= COUNT_MAX) {
         isEnd = true;
-        document.getElementById("title_text").textContent = document.getElementById("title_text").textContent + "：" + mark + "の勝ち";
+        document.getElementById("h1_title").textContent = document.getElementById("h1_title").textContent + "：" + mark + "の勝ち";
     }
 
     if (mark == "○") {
