@@ -7,12 +7,12 @@
     </head>
     <body>
         <h1 id="h1_title"></h1>
-        <div id="div_mode">
+        <div id="buttons">
+            <button id="button_undo" onclick="undo()">戻す</button>
+            <button id="button_reset" onclick="reset()">リセット</button>
             <label for="label_mode">目隠しモード:</label>
             <input type="checkbox" id="checkbox_mode" onchange="toggleMode()">
         </div>
-        <button id="button_undo" onclick="undo()">戻す</button>
-        <button id="button_reset" onclick="reset()">リセット</button>
         <table id="table_field" class="table_field"></table>
         <script src="./js/main.js"></script>
     </body>
