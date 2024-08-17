@@ -12,7 +12,6 @@ let is_blind = null;
 reset();
 
 function reset() {
-    document.getElementById("span_title").textContent = "五目並べ";
     field = document.getElementById("table_field");
     cells = [];
     history = [];
@@ -79,7 +78,9 @@ function onClick(event) {
     );
     if (count >= COUNT_MAX) {
         isEnd = true;
-        document.getElementById("span_title").textContent = document.getElementById("span_title").textContent + "：" + mark + "の勝ち";
+        setTimeout(() => {  
+            alert("勝負あり");  // 盤面を描画してからアラートを表示するためにsetTimeoutを使う
+        }, 0);
     }
 
     if (is_blind) {
@@ -136,5 +137,4 @@ function undo() {
     mark = mark == "○" ? "●" : "○";
 
     isEnd = false;
-    document.getElementById("span_title").textContent = "五目並べ";
 }
