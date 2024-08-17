@@ -60,7 +60,7 @@ function onClick(event) {
     }
 
     if (history.length > 0) {
-        cells[history[history.length - 1][1]][history[history.length - 1][0]].style.backgroundColor = "red";cells[history[history.length - 1][1]][history[history.length - 1][0]].style.backgroundColor = "darkgreen";
+        cells[history[history.length - 1][1]][history[history.length - 1][0]].style.backgroundColor = "red";cells[history[history.length - 1][1]][history[history.length - 1][0]].style.backgroundColor = "forestgreen";
     }
     
     history.push([x, y]);
@@ -131,7 +131,7 @@ function undo() {
 
     let [x, y] = history.pop();
     cells[y][x].textContent = "";
-    cells[y][x].style.backgroundColor = "darkgreen";
+    cells[y][x].style.backgroundColor = "forestgreen";
 
     mark = mark == "○" ? "●" : "○";
 
