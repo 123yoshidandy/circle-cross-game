@@ -1,20 +1,20 @@
-var field = document.getElementById("field_table");
-var cells = [];
+let field = document.getElementById("field_table");
+let cells = [];
 
 const HEIGHT = 10;
 const WIDTH = 10;
 const COUNT_MAX = 5;
 
-var mark = "○";
-var isEnd = false;
+let mark = "○";
+let isEnd = false;
 
 init();
 
 function init() {
-    for (var row = 0; row < HEIGHT; row++) {
-        var tr = document.createElement("tr");
-        for (var col = 0; col < WIDTH; col++) {
-            var td = document.createElement("td");
+    for (let row = 0; row < HEIGHT; row++) {
+        let tr = document.createElement("tr");
+        for (let col = 0; col < WIDTH; col++) {
+            let td = document.createElement("td");
             
             if(document.addEventListener){
                 td.addEventListener("click" , onClick);
@@ -27,11 +27,11 @@ function init() {
         field.appendChild(tr);
     }
 
-    var td_array = document.getElementsByTagName("td");
-    var index = 0;
-    for (var row = 0; row < HEIGHT; row++) {
+    let td_array = document.getElementsByTagName("td");
+    let index = 0;
+    for (let row = 0; row < HEIGHT; row++) {
         cells.push([]); // 配列のそれぞれの要素を配列にする（2次元配列にする）
-        for (var col = 0; col < WIDTH; col++) {
+        for (let col = 0; col < WIDTH; col++) {
             cells[row].push(td_array[index]);
             index++;
         }
@@ -39,8 +39,8 @@ function init() {
 }
 
 function onClick(event) {
-    var x = event.target.cellIndex;
-    var y = event.target.parentElement.rowIndex;
+    let x = event.target.cellIndex;
+    let y = event.target.parentElement.rowIndex;
 
     if (isEnd || cells[y][x].textContent != "") {
         return;
@@ -48,7 +48,7 @@ function onClick(event) {
 
     cells[y][x].textContent = mark;
 
-    var count = Math.max(
+    let count = Math.max(
         1 + countStone(x, y, 1,  0) + countStone(x, y, -1,  0),
         1 + countStone(x, y, 0,  1) + countStone(x, y,  0, -1),
         1 + countStone(x, y, 1,  1) + countStone(x, y, -1, -1),
