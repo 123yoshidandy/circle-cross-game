@@ -60,7 +60,7 @@ function onClick(event) {
     }
 
     if (history.length > 0) {
-        cells[history[history.length - 1][1]][history[history.length - 1][0]].style.backgroundColor = "red";cells[history[history.length - 1][1]][history[history.length - 1][0]].style.backgroundColor = "forestgreen";
+        cells[history[history.length - 1][1]][history[history.length - 1][0]].classList.remove("td_putted");
     }
     
     history.push([x, y]);
@@ -69,7 +69,7 @@ function onClick(event) {
     } else {
         cells[y][x].textContent = mark;
     }
-    cells[y][x].style.backgroundColor = "gold";
+    cells[y][x].classList.add("td_putted");
 
     let count = Math.max(
         1 + countStone(x, y, 1,  0) + countStone(x, y, -1,  0),  // 横
@@ -131,7 +131,7 @@ function undo() {
 
     let [x, y] = history.pop();
     cells[y][x].textContent = "";
-    cells[y][x].style.backgroundColor = "forestgreen";
+    cells[y][x].classList.remove("td_putted");
 
     mark = mark == "○" ? "●" : "○";
 

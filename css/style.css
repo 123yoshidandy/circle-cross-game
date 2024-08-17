@@ -24,3 +24,7 @@ td {
     font-size: 4vmin;
     text-align: center;
 }
+
+.td_putted {
+    background-color: gold;
+}
