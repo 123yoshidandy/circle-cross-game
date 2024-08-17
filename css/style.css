@@ -3,11 +3,11 @@ body {
     height: 100vmin;
     margin-left: auto;
     margin-right: auto;
-    background-color: #263238;
+    background-color: #3c8a6b;
 }
 
 h1 {
-    color: #FFFFFF;
+    color: #03190a;
 }
 
 .field_table {
@@ -20,7 +20,7 @@ h1 {
 td {
     width: 10%;
     height: 10%;
-    background-color: #455A64;
+    background-color: #136b3e;
     font-size: 4vmin;
     text-align: center;
 }

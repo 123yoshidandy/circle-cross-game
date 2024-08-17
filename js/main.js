@@ -60,7 +60,7 @@ function onClick(event) {
     }
 
     if (mark == "○") {
-        mark = "×";
+        mark = "●";
     } else {
         mark = "○";
     }
