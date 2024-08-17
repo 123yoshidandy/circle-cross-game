@@ -4,6 +4,7 @@ const COUNT_MAX = 5;
 
 let field = null;
 let cells = null;
+let history = null;
 let mark = null;
 let isEnd = null;
 
@@ -13,6 +14,7 @@ function reset() {
     document.getElementById("h1_title").textContent = "五目並べ";
     field = document.getElementById("table_field");
     cells = [];
+    history = [];
     mark = "○";
     isEnd = false;
 
@@ -56,6 +58,7 @@ function onClick(event) {
     }
 
     cells[y][x].textContent = mark;
+    history.push([x, y]);
 
     let count = Math.max(
         1 + countStone(x, y, 1,  0) + countStone(x, y, -1,  0),  // 横
@@ -68,12 +71,7 @@ function onClick(event) {
         document.getElementById("h1_title").textContent = document.getElementById("h1_title").textContent + "：" + mark + "の勝ち";
     }
 
-    if (mark == "○") {
-        mark = "●";
-    } else {
-        mark = "○";
-    }
-
+    mark = mark == "○" ? "●" : "○";
 }
 
 function countStone(x, y, dx, dy) {
@@ -84,4 +82,18 @@ function countStone(x, y, dx, dy) {
     } else {
         return 0;
     }
+}
+
+function undo() {
+    if (history.length == 0) {
+        return;
+    }
+
+    let [x, y] = history.pop();
+    cells[y][x].textContent = "";
+
+    mark = mark == "○" ? "●" : "○";
+
+    isEnd = false;
+    document.getElementById("h1_title").textContent = "五目並べ";
 }
